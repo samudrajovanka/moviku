@@ -1,5 +1,15 @@
 import React from 'react';
 
-const ProfilePage = () => <div>ProfilePage</div>;
+import Head from 'next/head';
+
+const ProfilePage = () => (
+  <>
+    <Head>
+      <title>Profile | Moviku</title>
+    </Head>
+
+    <div>ProfilePage</div>
+  </>
+);
 
 export default ProfilePage;
