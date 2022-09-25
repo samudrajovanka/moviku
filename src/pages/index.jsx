@@ -1,31 +1,14 @@
-import Link from 'next/link';
+import CardMovie from '@/components/CardMovie';
+import Title from '@/components/Title';
 
 const Home = () => {
   return (
     <div>
-      <p>Halaman halaman</p>
+      <Title>Now Playing</Title>
 
-      <Link href="/profile">
-        <a>Profile</a>
-      </Link>
-
-      <br />
-
-      <Link href="/blogs/hot-news-bola">
-        <a>Baca hot news bola</a>
-      </Link>
-
-      <br />
-
-      <Link href="/blogs/berita-panas">
-        <a>Baca berita panas</a>
-      </Link>
-
-      <br />
-
-      <a href="https://androidupnvj.com" target="_blank" rel="noopener noreferrer">
-        Android UPNVJ
-      </a>
+      <div className="mt-5">
+        <CardMovie />
+      </div>
     </div>
   );
 };

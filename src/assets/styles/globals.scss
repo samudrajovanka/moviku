@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .display {
+    @apply text-2xl lg:text-4xl font-bold;
+  }
+
+  .heading-1 {
+    @apply text-lg lg:text-2xl font-bold;
+  }
+
+  .heading-2 {
+    @apply text-base lg:text-xl font-bold;
+  }
+
+  .heading-3 {
+    @apply text-sm lg:text-lg font-bold;
+  }
+
+  .body-1 {
+    @apply text-sm lg:text-base;
+  }
+
+  .body-2 {
+    @apply text-xs lg:text-sm;
+  }
+
+  .body-3 {
+    font-size: 10rem;
+    line-height: 12rem;
+
+    @apply lg:text-xs;
+  }
+
+  .subtile-1 {
+    @apply text-sm lg:text-base font-medium;
+  }
+
+  .subtile-2 {
+    @apply text-xs lg:text-sm font-medium;
+  }
+
+  .subtile-3 {
+    font-size: 10rem;
+    line-height: 12rem;
+
+    @apply lg:text-xs font-medium;
+  }
+}
+
+@layer base {
+  html {
+    @apply body-1;
+  }
+}
