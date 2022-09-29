@@ -48,6 +48,14 @@
 
     @apply lg:text-xs font-medium;
   }
+
+  .active-link {
+    @apply text-white subtile-1;
+  }
+
+  .link {
+    @apply text-green-100 body-1;
+  }
 }
 
 @layer base {
