@@ -1,18 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import textMoviku from '@/assets/icon/Moviku.png';
-import silang from '@/assets/icon/silang.png';
-import logoMovie from '@/assets/icon/Vector.png';
+import textMoviku from '@/assets/icons/Moviku.png';
+import silang from '@/assets/icons/silang.png';
+import logoMovie from '@/assets/icons/Vector.png';
 
 const SideNav = ({ angka }) => {
-  /**
-   * @todo
-   * 1. buat pembungkus untuk sidenav dengan widthnya 80% dari layar
-   * 2. buat component untuk link
-   * 3. untuk link yang aktif, tambahkan class active
-   * 4. untuk icon close mungkin nanti aja
-   */
   const tailwindArr = [
     `bg-green-600 p-3 pl-4 pt-5 pb-5 rounded-tr-full rounded-br-full
     cursor-pointer hover:bg-green-200`,
@@ -22,6 +15,7 @@ const SideNav = ({ angka }) => {
   ];
   const isiNav = ['Home', 'Popular', 'Upcoming', 'Top Rated'];
   const urlName = ['/', '/popular', '/upcoming', '/top-rated'];
+
   return (
     <div className="w-4/5 h-screen z-10 fixed bg-white top-0 duration-75">
       <div className="border-b-2 border-black">

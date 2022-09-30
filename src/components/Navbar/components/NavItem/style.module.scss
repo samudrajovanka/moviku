@@ -1,0 +1,8 @@
+.link {
+  @apply text-green-100 body-1;
+
+  &:hover,
+  &_active {
+    @apply text-white subtile-1;
+  }
+}
