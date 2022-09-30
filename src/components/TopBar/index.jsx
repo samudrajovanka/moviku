@@ -28,12 +28,11 @@ const TopBar = () => {
           <div className="w-8 aspect-square bg-white" onClick={handleOpenSideNav} />
           <Logo withoutIcon color="white" />
         </div>
-
         <div className="w-8 aspect-square bg-white" />
       </Container>
 
       {isOpenSideNav && <Backdrop onClick={handleCloseSideNav} />}
-      {isOpenSideNav && <SideNav />}
+      {isOpenSideNav && <SideNav angka={handleCloseSideNav} />}
     </div>
   );
 };
