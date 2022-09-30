@@ -5,16 +5,14 @@ import { useRouter } from 'next/router';
 
 import Link from '@/components/Link';
 
-import style from './style.module.scss';
-
 const NavItem = ({ children, href }) => {
   const { asPath } = useRouter();
 
   return (
     <Link
       href={href}
-      className={cn(style.link, {
-        [style.link_active]: asPath === href
+      className={cn('py-3 px-4 w-11/12 hover:bg-green-500 hover:text-white hover:rounded-r-full', {
+        'bg-green-500 text-white rounded-r-full': asPath === href
       })}
     >
       {children}

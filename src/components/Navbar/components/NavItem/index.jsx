@@ -5,16 +5,15 @@ import { useRouter } from 'next/router';
 
 import Link from '@/components/Link';
 
-import style from './style.module.scss';
-
 const NavItem = ({ href, children }) => {
   const { asPath } = useRouter();
 
   return (
     <Link
       href={href}
-      className={cn(style.link, {
-        [style.link_active]: asPath === href
+      className={cn({
+        'text-green-100 body-1 hover:text-white hover:subtile-1': asPath !== href,
+        'text-white subtile-1': asPath === href
       })}
     >
       {children}
