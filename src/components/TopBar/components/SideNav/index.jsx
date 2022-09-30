@@ -1,44 +1,22 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import cn from 'classnames';
 
-import textMoviku from '@/assets/icons/Moviku.png';
-import silang from '@/assets/icons/silang.png';
-import logoMovie from '@/assets/icons/Vector.png';
+import SideNavHead from '@/components/TopBar/components/SideNavHead';
+import SideNavMenu from '@/components/TopBar/components/SideNavMenu';
 
-const SideNav = ({ angka }) => {
-  const tailwindArr = [
-    `bg-green-600 p-3 pl-4 pt-5 pb-5 rounded-tr-full rounded-br-full
-    cursor-pointer hover:bg-green-200`,
-    'p-3 pl-4 pt-5 pb-5 rounded-tr-full rounded-br-full cursor-pointer hover:bg-green-200',
-    'p-3 pl-4 pt-5 pb-5 rounded-tr-full rounded-br-full cursor-pointer hover:bg-green-200',
-    'p-3 pl-4 pt-5 pb-5 rounded-tr-full rounded-br-full cursor-pointer hover:bg-green-200'
-  ];
-  const isiNav = ['Home', 'Popular', 'Upcoming', 'Top Rated'];
-  const urlName = ['/', '/popular', '/upcoming', '/top-rated'];
-
+const SideNav = ({ isOpen, onClose }) => {
   return (
-    <div className="w-4/5 h-screen z-10 fixed bg-white top-0 duration-75">
-      <div className="border-b-2 border-black">
-        <div className="flex w-full justify-between p-4 pt-7 pb-7">
-          <div className="flex items-center row-gap">
-            <Image src={logoMovie} alt="x" />
-            <Image src={textMoviku} alt="x" className="ml-8" />
-          </div>
-          <Image src={silang} alt="x" onClick={angka} />
-        </div>
+    <nav
+      className={cn('w-4/5 h-screen z-30 fixed top-0 bg-white py-3 transition-transform', {
+        'translate-x-0': isOpen,
+        '-translate-x-full': !isOpen
+      })}
+    >
+      <div className="flex flex-col gap-3">
+        <SideNavHead onClose={onClose} />
+        <div className="h-[2px] w-full bg-gray-200" />
+        <SideNavMenu />
       </div>
-      <div className="linkAllPage">
-        <ul className="w-4/5">
-          {isiNav.map((value, index) => {
-            return (
-              <Link href={urlName[index]} key={value}>
-                <li className={tailwindArr[index]}>{value}</li>
-              </Link>
-            );
-          })}
-        </ul>
-      </div>
-    </div>
+    </nav>
   );
 };
 

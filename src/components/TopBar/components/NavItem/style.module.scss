@@ -1,0 +1,8 @@
+.link {
+  @apply py-3 px-4 w-11/12;
+
+  &:hover,
+  &_active {
+    @apply bg-green-500 text-white rounded-r-full;
+  }
+}
