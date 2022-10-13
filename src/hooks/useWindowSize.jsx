@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
-    width: 0,
-    height: 0
+    width: undefined,
+    height: undefined
   });
 
   const handleResize = useCallback(() => {
