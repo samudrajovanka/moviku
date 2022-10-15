@@ -1,24 +1,28 @@
 import React from 'react';
 
+import LanguageChanger from '@/components/LanguageChanger';
 import NavItem from '@/components/Navbar/components/NavItem';
+import { useLanguageContext } from '@/contexts/LanguageContext';
 
 const NavMenu = () => {
+  const { dictionary, selectedLanguage } = useLanguageContext();
+
   const menus = [
     {
       href: '/',
-      name: 'Home'
+      name: dictionary[selectedLanguage].home
     },
     {
       href: '/popular',
-      name: 'Popular'
+      name: dictionary[selectedLanguage].popular
     },
     {
       href: '/upcoming',
-      name: 'Upcoming'
+      name: dictionary[selectedLanguage].upcoming
     },
     {
       href: '/top-rated',
-      name: 'Top Rated'
+      name: dictionary[selectedLanguage].topRated
     }
   ];
 
@@ -29,6 +33,8 @@ const NavMenu = () => {
           {menu.name}
         </NavItem>
       ))}
+
+      <LanguageChanger />
     </div>
   );
 };

@@ -1,24 +1,27 @@
 import React from 'react';
 
 import NavItem from '@/components/TopBar/components/NavItem';
+import { useLanguageContext } from '@/contexts/LanguageContext';
 
 const SideNavMenu = () => {
+  const { dictionary, selectedLanguage } = useLanguageContext();
+
   const menus = [
     {
       href: '/',
-      name: 'Home'
+      name: dictionary[selectedLanguage].home
     },
     {
       href: '/popular',
-      name: 'Popular'
+      name: dictionary[selectedLanguage].popular
     },
     {
       href: '/upcoming',
-      name: 'Upoming'
+      name: dictionary[selectedLanguage].upcoming
     },
     {
       href: '/top-rated',
-      name: 'Top Rated'
+      name: dictionary[selectedLanguage].topRated
     }
   ];
 

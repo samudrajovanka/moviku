@@ -6,12 +6,15 @@ import CardMovie from '@/components/CardMovie';
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
 import Title from '@/components/Title';
+import { useLanguageContext } from '@/contexts/LanguageContext';
 
 const Home = () => {
+  const { dictionary, selectedLanguage } = useLanguageContext();
+
   return (
     <Layout>
       <Container>
-        <Title>Now Playing</Title>
+        <Title>{dictionary[selectedLanguage].nowPlaying}</Title>
 
         <Image src={spidermanImg} alt="spiderman" placeholder="blur" />
         <Image

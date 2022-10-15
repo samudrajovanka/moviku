@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import '@/assets/styles/globals.scss';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -9,7 +10,9 @@ function MyApp({ Component, pageProps }) {
         <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
       </Head>
 
-      <Component {...pageProps} />
+      <LanguageProvider>
+        <Component {...pageProps} />
+      </LanguageProvider>
     </>
   );
 }

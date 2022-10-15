@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 
 import HumbergerBar from '@/assets/icons/humbergerBar.svg';
 import Container from '@/components/Container';
+import LanguageChanger from '@/components/LanguageChanger';
 import Link from '@/components/Link';
 import Logo from '@/components/Logo';
 
@@ -23,7 +24,7 @@ const TopBar = () => {
 
   return (
     <div className="bg-green-500 py-[10px] z-20 sticky top-0">
-      <Container className="flex justify-between">
+      <Container className="flex justify-between items-center">
         <div className="flex gap-3 items-center">
           <HumbergerBar
             className="text-[32px] text-white cursor-pointer"
@@ -33,7 +34,8 @@ const TopBar = () => {
             <Logo withoutIcon color="white" />
           </Link>
         </div>
-        <div className="w-8 aspect-square bg-white" />
+
+        <LanguageChanger />
       </Container>
 
       {isOpenSideNav && <Backdrop onClick={handleCloseSideNav} />}
