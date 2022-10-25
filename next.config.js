@@ -3,10 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   env: {
-    API_KEY: process.env.API_KEY
+    API_KEY: process.env.API_KEY,
+    BASE_URL_MOVIE_DB: 'https://api.themoviedb.org/3'
   },
   images: {
-    domains: ['images.unsplash.com']
+    domains: ['image.tmdb.org']
   },
   webpack(config) {
     config.module.rules.push({
