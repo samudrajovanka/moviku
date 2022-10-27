@@ -3,8 +3,8 @@ import { generateUrlMovieDb } from 'lib/generateUrlMovieDb';
 import CardMovie from '@/components/CardMovie';
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
-import Title from '@/components/Title';
 import ListTopRated from '@/components/ListTopRated';
+import Title from '@/components/Title';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 
 const TopRated = ({ movies }) => {

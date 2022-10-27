@@ -1,7 +1,7 @@
 import React from 'react';
-import Moment from 'react-moment';
 
 import Image from 'next/image';
+import Moment from 'react-moment';
 
 import MatureIcon from '@/assets/icons/mature.svg';
 import RateIcon from '@/assets/icons/rate.svg';
