@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 
 import Image from 'next/image';
 
@@ -36,7 +37,9 @@ const CardMovie = ({ imageUrl, rating, isAdult, title, releaseDate }) => {
 
       <div className="px-2">
         <p>{title}</p>
-        <p className="mt-1 subtitle-1 text-zinc-400">{releaseDate}</p>
+        <p className="mt-1 subtitle-1 text-zinc-400">
+          <Moment format="DD MMMM YYYY">{releaseDate}</Moment>
+        </p>
       </div>
     </div>
   );

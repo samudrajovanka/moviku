@@ -21,7 +21,6 @@ export async function getServerSideProps() {
   const nowPlayingMovies = await fetch(generateUrlMovieDb('/movie/now_playing')).then((data) =>
     data.json()
   );
-
   return {
     props: {
       movies: nowPlayingMovies.results
