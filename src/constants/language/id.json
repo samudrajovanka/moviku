@@ -4,5 +4,9 @@
   "upcoming": "Mendatang",
   "topRated": "Teratas",
   "nowPlaying": "Sedang Tayang",
-  "footer": "Moviku - API dari"
+  "footer": "Moviku - API dari",
+  "topRatedDescription": "Web untuk melihat film teratas",
+  "upcomingDescription": "Web untuk melihat film yang akan tayang",
+  "popularDescription": "Web untuk melihat film populer",
+  "homeDescription": "Web untuk melihat film"
 }

@@ -1,30 +1,36 @@
-import CardMovie from '@/components/CardMovie';
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
+import ListMovie from '@/components/ListMovie';
 import Seo from '@/components/Seo';
-import Title from '@/components/Title';
 import { useLanguageContext } from '@/contexts/LanguageContext';
+import { generateUrlMovieDb } from '@/lib/generateUrlMovieDb';
 
-const Upcoming = () => {
+const UpcomingPage = ({ movies }) => {
   const { dictionary, selectedLanguage } = useLanguageContext();
 
   return (
     <Layout>
       <Seo
         title={dictionary[selectedLanguage].upcoming}
-        description="Web for viewing upcoming movies"
+        description={dictionary[selectedLanguage].upcomingDescription}
         withSuffix
       />
 
       <Container>
-        <Title>{dictionary[selectedLanguage].upcoming}</Title>
-
-        <div className="mt-5">
-          <CardMovie />
-        </div>
+        <ListMovie title={dictionary[selectedLanguage].upcoming} movies={movies} />
       </Container>
     </Layout>
   );
 };
+export async function getServerSideProps() {
+  const upcomingMovies = await fetch(generateUrlMovieDb('/movie/upcoming')).then((data) =>
+    data.json()
+  );
 
-export default Upcoming;
+  return {
+    props: {
+      movies: upcomingMovies.results
+    }
+  };
+}
+export default UpcomingPage;

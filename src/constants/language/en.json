@@ -4,5 +4,9 @@
   "upcoming": "Upcoming",
   "topRated": "Top Rated",
   "nowPlaying": "Now Playing",
-  "footer": "Moviku - API from"
+  "footer": "Moviku - API from",
+  "topRatedDescription": "Web for viewing top rated movies",
+  "upcomingDescription": "Web for viewing upcoming movies",
+  "popularDescription": "Web for viewing popular movies",
+  "homeDescription": "Web for viewing movies"
 }

@@ -6,7 +6,8 @@
       "@/assets/*": ["assets/*"],
       "@/hooks/*": ["hooks/*"],
       "@/contexts/*": ["contexts/*"],
-      "@/constants/*": ["constants/*"]
+      "@/constants/*": ["constants/*"],
+      "@/lib/*": ["lib/*"]
     }
   }
 }

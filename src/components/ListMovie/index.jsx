@@ -8,7 +8,7 @@ const ListMovie = ({ title, movies }) => {
     <>
       <Title className="mt-8">{title}</Title>
 
-      <div className="mt-5 grid grid-cols-4 gap-5">
+      <div className="my-5 grid grid-cols-4 gap-5">
         {movies.map((movie) => (
           <CardMovie
             key={movie.id}
