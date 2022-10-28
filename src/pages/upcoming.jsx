@@ -1,6 +1,7 @@
 import CardMovie from '@/components/CardMovie';
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
+import Seo from '@/components/Seo';
 import Title from '@/components/Title';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 
@@ -9,6 +10,12 @@ const Upcoming = () => {
 
   return (
     <Layout>
+      <Seo
+        title={dictionary[selectedLanguage].upcoming}
+        description="Web for viewing upcoming movies"
+        withSuffix
+      />
+
       <Container>
         <Title>{dictionary[selectedLanguage].upcoming}</Title>
 
