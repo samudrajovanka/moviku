@@ -13,7 +13,7 @@ const ListMovie = ({ title, movies }) => {
           <CardMovie
             key={movie.id}
             imageUrl={movie.poster_path}
-            rating={movie.vote_average}
+            rating={`${movie.vote_average * 10} %`}
             isAdult={movie.adult}
             title={movie.title}
             releaseDate={movie.release_date}

@@ -3,7 +3,7 @@ import { generateUrlMovieDb } from 'lib/generateUrlMovieDb';
 import CardMovie from '@/components/CardMovie';
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
-import ListTopRated from '@/components/ListTopRated';
+import ListMovie from '@/components/ListMovie';
 import Title from '@/components/Title';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 
@@ -14,7 +14,9 @@ const TopRated = ({ movies }) => {
     <Layout>
       <Container>
         <Title>{dictionary[selectedLanguage].topRated}</Title>
-        <ListTopRated title={dictionary[selectedLanguage].nowPlaying} movies={movies} />
+
+        <ListMovie title={dictionary[selectedLanguage].nowPlaying} movies={movies} />
+
         <div className="mt-5">
           <CardMovie />
         </div>
@@ -26,6 +28,7 @@ export async function getServerSideProps() {
   const nowPlayingMovies = await fetch(generateUrlMovieDb('/movie/top_rated')).then((data) =>
     data.json()
   );
+
   return {
     props: {
       movies: nowPlayingMovies.results

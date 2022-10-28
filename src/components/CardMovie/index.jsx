@@ -1,7 +1,7 @@
 import React from 'react';
 
+import moment from 'moment';
 import Image from 'next/image';
-import Moment from 'react-moment';
 
 import MatureIcon from '@/assets/icons/mature.svg';
 import RateIcon from '@/assets/icons/rate.svg';
@@ -38,7 +38,7 @@ const CardMovie = ({ imageUrl, rating, isAdult, title, releaseDate }) => {
       <div className="px-2">
         <p>{title}</p>
         <p className="mt-1 subtitle-1 text-zinc-400">
-          <Moment format="DD MMMM YYYY">{releaseDate}</Moment>
+          {moment(releaseDate).format('DD MMMM YYYY')}
         </p>
       </div>
     </div>
