@@ -10,13 +10,17 @@
     "next/core-web-vitals",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["react", "import-alias", "import", "react-hooks", "prettier"],
+  "plugins": ["react", "import-alias", "import", "react-hooks", "prettier", "@typescript-eslint"],
   "settings": {
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx"]
       }
     }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
   },
   "rules": {
     "prettier/prettier": ["error"],
@@ -96,6 +100,26 @@
         "avoidEscape": true,
         "allowTemplateLiterals": true
       }
-    ]
+    ],
+    "@typescript-eslint/consistent-type-imports": "warn",
+    "@typescript-eslint/comma-dangle": ["error", "never"],
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "@typescript-eslint/semi": ["error", "always"],
+    "no-shadow": "off",
+    "react/require-default-props": "off"
   }
 }
