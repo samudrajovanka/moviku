@@ -1,11 +1,10 @@
-import type { GetServerSideProps } from 'next';
-
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
 import ListMovie from '@/components/ListMovie';
 import Seo from '@/components/Seo';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { generateUrlMovieDb } from '@/lib/generateUrlMovieDb';
+import { gssp } from '@/services/gssp';
 import type { ResponseMoviesDb, Movie } from '@/types/moviedb/movie';
 
 interface HomeProps {
@@ -29,9 +28,11 @@ const Home = ({ movies }: HomeProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps = gssp(async (context) => {
+  const language = context.lang;
+
   const nowPlayingMovies: ResponseMoviesDb = await fetch(
-    generateUrlMovieDb('/movie/now_playing')
+    generateUrlMovieDb('/movie/now_playing', { language })
   ).then((data) => data.json());
 
   return {
@@ -39,6 +40,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
       movies: nowPlayingMovies.results
     }
   };
-};
+});
 
 export default Home;

@@ -1,5 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
+import { setCookie, getCookie } from 'cookies-next';
+import { useRouter } from 'next/router';
+
 import en from '@/constants/language/en.json';
 import id from '@/constants/language/id.json';
 
@@ -10,6 +13,7 @@ const LanguageContext = createContext<LanguageContextValue>({} as LanguageContex
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(Language.EN);
+  const router = useRouter();
 
   const language: LanguageContextValue['language'] = useMemo(
     () => ({
@@ -28,22 +32,25 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   );
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const languageFromStorage = localStorage.getItem('lang');
+    const languageFromCookie = getCookie('lang');
 
-      if (languageFromStorage) {
-        setSelectedLanguage(languageFromStorage as Language);
-      }
+    if (languageFromCookie) {
+      setSelectedLanguage(languageFromCookie as Language);
     }
   }, []);
 
-  const changeLanguage: LanguageContextValue['changeLanguage'] = useCallback((languageKey) => {
-    setSelectedLanguage(languageKey);
+  const changeLanguage: LanguageContextValue['changeLanguage'] = useCallback(
+    (languageKey) => {
+      if (languageKey === selectedLanguage) return;
 
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('lang', languageKey);
-    }
-  }, []);
+      setSelectedLanguage(languageKey);
+
+      setCookie('lang', languageKey);
+
+      router.reload();
+    },
+    [router, selectedLanguage]
+  );
 
   const value: LanguageContextValue = useMemo(
     () => ({

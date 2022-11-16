@@ -1,11 +1,10 @@
-import type { GetServerSideProps } from 'next';
-
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
 import ListMovie from '@/components/ListMovie';
 import Seo from '@/components/Seo';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { generateUrlMovieDb } from '@/lib/generateUrlMovieDb';
+import { gssp } from '@/services/gssp';
 import type { Movie, ResponseMoviesDb } from '@/types/moviedb/movie';
 
 interface PopularProps {
@@ -30,16 +29,18 @@ const Popular = ({ movies }: PopularProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const PopularMovies: ResponseMoviesDb = await fetch(generateUrlMovieDb('/movie/popular')).then(
-    (data) => data.json()
-  );
+export const getServerSideProps = gssp(async (context) => {
+  const language = context.lang;
+
+  const popularMovies: ResponseMoviesDb = await fetch(
+    generateUrlMovieDb('/movie/popular', { language })
+  ).then((data) => data.json());
 
   return {
     props: {
-      movies: PopularMovies.results
+      movies: popularMovies.results
     }
   };
-};
+});
 
 export default Popular;

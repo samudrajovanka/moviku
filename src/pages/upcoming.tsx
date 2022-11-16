@@ -1,11 +1,10 @@
-import type { GetServerSideProps } from 'next';
-
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
 import ListMovie from '@/components/ListMovie';
 import Seo from '@/components/Seo';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { generateUrlMovieDb } from '@/lib/generateUrlMovieDb';
+import { gssp } from '@/services/gssp';
 import type { Movie, ResponseMoviesDb } from '@/types/moviedb/movie';
 
 interface UpcomingPageProps {
@@ -29,15 +28,19 @@ const UpcomingPage = ({ movies }: UpcomingPageProps) => {
     </Layout>
   );
 };
-export const getServerSideProps: GetServerSideProps = async () => {
-  const upcomingMovies: ResponseMoviesDb = await fetch(generateUrlMovieDb('/movie/upcoming')).then(
-    (data) => data.json()
-  );
+
+export const getServerSideProps = gssp(async (context) => {
+  const language = context.lang;
+
+  const upcomingMovies: ResponseMoviesDb = await fetch(
+    generateUrlMovieDb('/movie/upcoming', { language })
+  ).then((data) => data.json());
 
   return {
     props: {
       movies: upcomingMovies.results
     }
   };
-};
+});
+
 export default UpcomingPage;

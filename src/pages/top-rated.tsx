@@ -1,11 +1,10 @@
-import type { GetServerSideProps } from 'next';
-
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
 import ListMovie from '@/components/ListMovie';
 import Seo from '@/components/Seo';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { generateUrlMovieDb } from '@/lib/generateUrlMovieDb';
+import { gssp } from '@/services/gssp';
 import type { Movie, ResponseMoviesDb } from '@/types/moviedb/movie';
 
 interface TopRatedProps {
@@ -30,16 +29,18 @@ const TopRated = ({ movies }: TopRatedProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const topRatedMovies: ResponseMoviesDb = await fetch(generateUrlMovieDb('/movie/top_rated')).then(
-    (data) => data.json()
-  );
+export const getServerSideProps = gssp(async (context) => {
+  const language = context.lang;
+
+  const topRatedMovies: ResponseMoviesDb = await fetch(
+    generateUrlMovieDb('/movie/top_rated', { language })
+  ).then((data) => data.json());
 
   return {
     props: {
       movies: topRatedMovies.results
     }
   };
-};
+});
 
 export default TopRated;
