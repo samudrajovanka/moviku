@@ -1,3 +1,4 @@
+import DarkMode from '@/components/DarkMode';
 import LanguageChanger from '@/components/LanguageChanger';
 import NavItem from '@/components/Navbar/components/NavItem';
 import { useLanguageContext } from '@/contexts/LanguageContext';
@@ -33,6 +34,7 @@ const NavMenu = () => {
       ))}
 
       <LanguageChanger />
+      <DarkMode />
     </div>
   );
 };

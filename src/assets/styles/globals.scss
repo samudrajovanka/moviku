@@ -53,5 +53,6 @@
 @layer base {
   body {
     @apply body-1;
+    @apply dark:bg-zinc-900;
   }
 }
