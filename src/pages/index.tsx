@@ -13,7 +13,6 @@ interface HomeProps {
 
 const Home = ({ movies }: HomeProps) => {
   const { dictionary, selectedLanguage } = useLanguageContext();
-
   return (
     <Layout>
       <Seo

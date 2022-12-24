@@ -6,7 +6,7 @@ import NavMenu from './components/NavMenu';
 
 const Navbar = () => {
   return (
-    <nav className="bg-green-500 py-3 sticky top-0 z-20">
+    <nav className="bg-green-500 py-3 sticky top-0 z-20 dark:bg-zinc-800">
       <Container className="flex justify-between">
         <Link href="/">
           <Logo color="white" />

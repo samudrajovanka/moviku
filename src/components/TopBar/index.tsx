@@ -23,7 +23,7 @@ const TopBar = () => {
   };
 
   return (
-    <div className="bg-green-500 py-[10px] z-20 sticky top-0">
+    <div className="bg-green-500 py-[10px] z-20 sticky top-0 dark:bg-zinc-800">
       <Container className="flex justify-between items-center">
         <div className="flex gap-3 items-center">
           <HumbergerBar

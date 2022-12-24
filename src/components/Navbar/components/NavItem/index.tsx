@@ -12,7 +12,8 @@ const NavItem = ({ href, children }: NavItemProps) => {
     <Link
       href={href}
       className={cn({
-        'text-green-100 body-1 hover:text-white hover:subtile-1': asPath !== href,
+        'text-green-100 body-1 dark:text-zinc-400 hover:text-white hover:subtile-1':
+          asPath !== href,
         'text-white subtile-1': asPath === href
       })}
     >
